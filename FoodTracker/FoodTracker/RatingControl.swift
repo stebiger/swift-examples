@@ -20,7 +20,7 @@ class RatingControl: UIView {
         super.init(coder: aDecoder)
         
         for _ in 0..<5 {
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+            let button = UIButton()
             button.backgroundColor = UIColor.redColor()
             button.addTarget(self, action: "ratingButtonTapped:", forControlEvents: .TouchDown)
             ratingButtons += [button]
@@ -32,7 +32,13 @@ class RatingControl: UIView {
     }
     
     override func intrinsicContentSize() -> CGSize {
-        return CGSize(width: 240, height: 44)
+        let buttonsize = Int(frame.size.height)
+        let spacing = 4
+        let stars = 5
+        let width = (buttonsize + spacing) * stars
+        
+        
+        return CGSize(width: width, height: buttonsize)
     }
     
     // MARK: Action Button
@@ -42,11 +48,15 @@ class RatingControl: UIView {
     }
     
     override func layoutSubviews() {
-        var buttonFrame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        let buttonsize = Int(frame.size.height)
+
+        
+        
+        var buttonFrame = CGRect(x: 0, y: 0, width: buttonsize, height: buttonsize)
         
         // Offset the buttons for alignment
         for(index, button) in ratingButtons.enumerate() {
-            buttonFrame.origin.x = CGFloat(index * (44+5))
+            buttonFrame.origin.x = CGFloat(index * (buttonsize + 5))
             button.frame = buttonFrame
         }
     }
