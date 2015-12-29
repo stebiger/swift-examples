@@ -33,4 +33,17 @@ class FoodTrackerTests: XCTestCase {
         }
     }
     
+    // MARK: FoodTracker Tests
+    
+    func testMealInitialization() {
+        let meal = Meal(name: "New Meal", photo: nil, rating: 5)
+        XCTAssertNotNil(meal)
+        
+        let noMeal = Meal(name: "", photo: nil, rating: 0)
+        XCTAssertNil(noMeal, "Empty name is invalid")
+        
+        let badRating = Meal(name: "Bad Meal", photo: nil, rating: -1)
+        XCTAssertNil(badRating, "Negative ratings are invalid")
+    }
+    
 }
