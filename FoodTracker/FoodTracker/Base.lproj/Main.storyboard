@@ -74,7 +74,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-Tl-s2o">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-Tl-s2o">
                                 <rect key="frame" x="20" y="72" width="560" height="418"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jwC-Mh-TnT">
@@ -107,27 +107,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nE5-Tl-s2o" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="60" id="TpW-HN-uNo"/>
+                            <constraint firstItem="nE5-Tl-s2o" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="72" id="TpW-HN-uNo"/>
                             <constraint firstItem="nE5-Tl-s2o" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Vc7-Re-1hm"/>
                             <constraint firstItem="nE5-Tl-s2o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ePN-Pl-KPt"/>
-                            <constraint firstItem="nE5-Tl-s2o" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="60" id="mNv-Wb-hJZ"/>
+                            <constraint firstItem="nE5-Tl-s2o" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="72" id="mNv-Wb-hJZ"/>
                             <constraint firstItem="nE5-Tl-s2o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mvV-nj-mxV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nE5-Tl-s2o" secondAttribute="trailing" id="wEI-r8-0rM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nE5-Tl-s2o" secondAttribute="trailing" id="wx8-rZ-prc"/>
-                            <constraint firstItem="nE5-Tl-s2o" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="60" id="zzd-d4-Y7s"/>
+                            <constraint firstItem="nE5-Tl-s2o" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="72" id="zzd-d4-Y7s"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="bHP-jj-HdE">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="qBh-uC-dRW"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kWH-pf-SUn"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="kWH-pf-SUn">
+                            <connections>
+                                <segue destination="rxb-4w-fEG" kind="unwind" unwindAction="unwindToMealList:" id="g3h-Mi-d3N"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mealPhotoView" destination="6Yv-5K-vF3" id="SLc-xE-rVM"/>
                         <outlet property="nameTextField" destination="jwC-Mh-TnT" id="bru-Rr-6Oy"/>
                         <outlet property="ratingControl" destination="zLV-9B-mbr" id="PlV-OF-Geo"/>
+                        <outlet property="saveButton" destination="kWH-pf-SUn" id="18S-Cd-FTI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="rxb-4w-fEG" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="mUK-dn-AcB">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="GZA-uO-kV9"/>
