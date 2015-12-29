@@ -26,12 +26,15 @@ class MealTableViewController: UITableViewController {
         let meal1 = Meal(name: "Caprese Salad", photo: photo1, rating: 4)!
         
         let photo2 = UIImage(named: "meal2")!
-        let meal2 = Meal(name: "Chicken and Potatoes", photo: photo2, rating: 5)!
+        let meal2 = Meal(name: "Chicken and Potatoes", photo: photo2, rating: 3)!
         
         let photo3 = UIImage(named: "meal3")!
         let meal3 = Meal(name: "Pasta with Meatballs", photo: photo3, rating: 3)!
         
-        meals += [meal1, meal2, meal3]
+        let photo4 = UIImage(named: "meal4")
+        let meal4 = Meal(name: "Worscht Enterprise", photo: photo4, rating: 5)!
+        
+        meals += [meal1, meal2, meal3, meal4]
     }
 
     override func didReceiveMemoryWarning() {
