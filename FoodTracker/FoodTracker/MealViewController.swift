@@ -76,6 +76,12 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Handle the user input on textfield through delegate callback (self == this)
         nameTextField.delegate = self
         
+        if let meal = meal {
+            navigationItem.title    = meal.name
+            nameTextField.text      = meal.name
+            mealPhotoView.image     = meal.photo
+            ratingControl.rating    = meal.rating
+        }
         checkValidMealName()
     }
     
